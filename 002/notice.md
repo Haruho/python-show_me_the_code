@@ -1,0 +1,4 @@
+python3的版本使用的链接库是pyMysql<br>
+mysql官网上介绍的是python2版本的链接库，py3在安装的时候会提示说需要visual 14以上的build tool<br>
+困恼了很久结果发现是这种版本对应的问题就很烦<br>
+pip的时候别装错了
