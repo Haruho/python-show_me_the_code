@@ -76,11 +76,24 @@ def changeData():
     connection = pymysql.connect(host = "localhost",user = "root",password = "123456",db = "MySchema")
     cursor = connection.cursor()
     #把所有的id都+1  更新的关键字是Update
-    sql = "UPDATE ACTIVEKEY SET CONTENT = "12902"
-    try:4
+    sql = "UPDATE ACTIVEKEY SET CONTENT "
+    try:
         cursor.execute(sql)
         connection.commit()
     except:
         connection.rollback()
         connection.close()
 
+def deleteData():
+    connection = pymysql.connect(host = "localhost",user = "root",password = "123456", db = "MySchema")
+    cursor = connection.cursor()
+    #删除STATE = 1 的数据
+    sql = "DELETE FROM ACTIVEKEY WHERE STATE = '1'"
+    try:
+        cursor.execute(sql)
+        connection.commit()
+    except:
+        connection.rollback()
+        connection.close()
+
+deleteData()
