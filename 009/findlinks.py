@@ -1,4 +1,7 @@
-<html lang="zh-CN" style="" class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths show-download-banner"><head>
+#获取所有链接
+
+from html.parser import HTMLParser
+html = '''<html lang="zh-CN" style="" class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths show-download-banner"><head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>迄今为止最高水准的大型开放世界游戏，诞生了</title>
@@ -142,10 +145,28 @@
     
     <div class="footer">
     <a href="http://www.zhihu.com/">知乎网</a> · © 2018 知乎
-    </div>
+    </div>s
     <script src="http://static.daily.zhihu.com/js/jquery.1.9.1.js"></script>
     <script src="/js/share.js?v=b8b67"></script>
     
     
     
-    </body></html> 
+    </body></html> '''
+
+# t = ('a','b')
+# print(t[0])
+class MyParser(HTMLParser):
+    def handle_starttag(self,tag,attrs):
+        if(tag == 'a'):
+            #print(attrs)
+            for a in attrs:
+                if(a[0] == 'href'):
+                    print(a)
+                
+
+parser = MyParser()
+
+parser.feed(html)
+
+
+
