@@ -31,4 +31,5 @@ for i in range(5):
 #画点
 for i in range(300):
     draw.point((random.randint(0,150),random.randint(0,30),random.randint(0,150),random.randint(0,50)),fill=getRandomColor())
+    
 captcha.save('E:/PythonProject/Python3/010/captcha.png','png')
